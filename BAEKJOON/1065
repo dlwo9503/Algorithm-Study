@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+	int n, answer = 0, a, b, c = 0;
+	vector<int> v;
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		if (i < 100) answer++;
+		else
+		{
+			a = i;
+			while (a)
+			{
+				v.push_back(a % 10);
+				a /= 10;
+			}
+			b = v[0] - v[1];
+			for (int i = 0; i < v.size() - 1; i++) if (v[i] - v[i + 1] == b) c++;
+			if (c == v.size() - 1) answer++;
+		}
+		v.clear();
+		c = 0;
+	}
+	cout << answer;
+}
