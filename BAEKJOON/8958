@@ -1,0 +1,26 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+	int t, p = 0, score = 0;
+	string s;
+	vector<int> v;
+	cin >> t;
+	for (int i = 0; i < t; i++)
+	{
+		cin >> s;
+		p = 0, score = 0;
+		for (int i = 0; i < s.length(); i++)
+		{
+			if (s[i] == 'O')
+			{
+				p++;
+				score += p;
+			}
+			else p = 0;
+		}
+		v.push_back(score);
+	}
+	for (int i = 0; i < v.size(); i++) cout << v[i] << '\n';
+}
