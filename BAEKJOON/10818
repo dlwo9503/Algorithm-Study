@@ -1,0 +1,20 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+using namespace std;
+
+int main(){
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+    int n, a;
+    vector<int> v;
+    cin >> n;
+    while (n--)
+    {
+        cin >> a;
+        v.push_back(a);
+    }
+    int min = *min_element(v.begin(), v.end());
+    int max = *max_element(v.begin(), v.end());
+    cout << min << ' ' << max;
+}
