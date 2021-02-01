@@ -1,0 +1,17 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	int n, a, b, cnt = 1;
+	cin >> n;
+
+	a = n / 10 + n % 10;
+	b = (n % 10) * 10 + a % 10;
+
+	for (; n != b; cnt++){
+		a = b / 10 + b % 10;
+		b = (b % 10) * 10 + a % 10;
+	}
+	cout << cnt;
+}
