@@ -1,0 +1,17 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, sum = 1, i;
+    cin >> n;
+    for (i = 0; ; i++)
+    {
+        sum += 6 * i;
+        if (sum >= n) break;
+    }
+    cout << i + 1;
+}
