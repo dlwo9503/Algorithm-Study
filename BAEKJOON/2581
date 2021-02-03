@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int m, n, sum = 0, min = 10001;
+	cin >> m >> n;
+	for (int i = m; i <= n; i++)
+	{
+		int cnt = 0;
+		for (int j = 2; j < i; j++)
+		{
+			if (i % j == 0) cnt++;
+		}
+		if (!cnt && i != 1)
+		{
+			sum += i;
+			if (i < min) min = i;
+		}
+	}
+	if (sum) cout << sum << endl << min;
+	else cout << -1;
+}
