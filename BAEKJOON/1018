@@ -1,0 +1,172 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, m, minn = 0x7fffffff;
+    char table[50][50];
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> table[i][j];
+
+    for (int i = 0; i < n + 1 - 8; i++)
+    {
+        for (int j = 0; j < m + 1 - 8; j++)
+        {
+            int sum = 0;
+            if (table[i][j] == 'W')
+            {
+                for (int ii = i; ii < i + 8; ii++)
+                {
+                    for (int jj = j; jj < j + 8; jj++)
+                    {
+                        if (ii % 2 == 1)
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                        }
+                        else
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int ii = i; ii < i + 8; ii++)
+                {
+                    for (int jj = j; jj < j + 8; jj++)
+                    {
+                        if (ii % 2 == 1)
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                        }
+                        else
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                        }
+                    }
+                }
+            }
+            if (sum < minn)
+                minn = sum;
+        }
+    }
+    for (int i = 0; i < n + 1 - 8; i++)
+    {
+        for (int j = 0; j < m + 1 - 8; j++)
+        {
+            int sum = 0;
+            if (table[i][j] == 'B')
+            {
+                for (int ii = i; ii < i + 8; ii++)
+                {
+                    for (int jj = j; jj < j + 8; jj++)
+                    {
+                        if (ii % 2 == 1)
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                        }
+                        else
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int ii = i; ii < i + 8; ii++)
+                {
+                    for (int jj = j; jj < j + 8; jj++)
+                    {
+                        if (ii % 2 == 1)
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                        }
+                        else
+                        {
+                            if (jj % 2 == 1)
+                            {
+                                if (table[ii][jj] != 'W')
+                                    sum++;
+                            }
+                            else
+                            {
+                                if (table[ii][jj] != 'B')
+                                    sum++;
+                            }
+                        }
+                    }
+                }
+            }
+            if (sum < minn)
+                minn = sum;
+        }
+    }
+    cout << minn;
+}
