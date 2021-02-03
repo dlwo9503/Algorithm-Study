@@ -1,0 +1,27 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main(){
+    int n, m, a, maxn = -1 * 0x7fffffff;
+    vector<int> v;
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a;
+        v.push_back(a);
+    }
+    for (int i = 0; i < n - 2; i++)
+    {
+        for (int j = i + 1; j < n - 1; j++)
+        {
+            for (int ii = j + 1; ii < n; ii++)
+            {
+                a = (v[i] + v[j] + v[ii]);
+                if (maxn < a && a <= m)
+                    maxn = a;
+            }
+        }
+    }
+    cout << maxn;
+}
