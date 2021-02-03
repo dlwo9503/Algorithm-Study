@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t, k, n, arr[15][15] = {};
+	cin >> t;
+	while(t--)
+	{
+		cin >> k >> n;
+		for (int i = 1; i <= 14; i++)
+		{
+			arr[0][i - 1] = i;
+			arr[i][0] = 1;
+		}
+		for (int i = 1; i <= k; i++)
+			for (int j = 1; j <= n; j++) arr[i][j] = arr[i - 1][j] + arr[i][j - 1];
+		cout << arr[k][n - 1] << '/n';
+	}
+}
