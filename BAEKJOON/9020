@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int arr[10001] = { 0,1 };
+
+bool aaa(int n) {
+	if (arr[n] == 0) return true;
+	else return false;
+}
+
+int main() {
+	int t, n, a, b;
+	cin >> t;
+	for (int i = 2; i <= 10000; i++)
+		for (int j = 2; i * j <= 10000; j++) arr[i * j] = 1;
+	for (int i = 0; i < t; i++)
+	{
+		cin >> n;
+		for (int j = 2; j <= n / 2; j++)
+		{
+			if (aaa(j) && aaa(n - j))
+			{
+				a = j;
+				b = n - j;
+			}
+		}
+		cout << a << ' ' << b << '\n';
+	}
+}
