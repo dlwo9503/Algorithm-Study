@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{
+    cout.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, a;
+    vector<int> v(10001, 0);
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a;
+        v[a]++;
+    }
+    for (int i = 0; i < 10001; i++)
+    {
+        if (v[i])
+        {
+            while (v[i])
+            {
+                cout << i << '\n';
+                v[i]--;
+            }
+        }
+    }
+}
