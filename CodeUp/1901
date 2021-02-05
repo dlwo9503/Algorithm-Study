@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int n;
+
+void f(int a)
+{
+    if (a == n)
+    {
+        cout << a;
+        return;
+    }
+    else
+    {
+        cout << a << '\n';
+        f(a + 1);
+    }
+}
+
+int main()
+{
+    cin >> n;
+    f(1);
+}
