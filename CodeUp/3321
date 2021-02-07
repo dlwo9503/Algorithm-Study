@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, a, b, c, x;
+    double mx = -1 * 0x7fffffff, pizza;
+    vector<int> topping;
+    cin >> n >> a >> b >> c;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> x;
+        topping.push_back(x);
+    }
+    sort(topping.begin(), topping.end(), greater<int>());
+    for (int i = 0; i < n; i++)
+    {
+        c += topping[i];
+        pizza = (double)c /(a + b * (i + 1));
+        if(pizza > mx) mx = pizza;
+    }
+    cout << floor(mx);
+}
