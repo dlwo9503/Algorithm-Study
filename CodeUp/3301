@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, cnt = 0;
+    int money[8] = {10, 50, 100, 500, 1000, 5000, 10000, 50000};
+    cin >> n;
+    for (int i = 7; n; i--)
+    {
+        if (n >= money[i]){
+            cnt += n / money[i];
+            n -= (n / money[i]) * money[i];
+        }
+    }
+    cout << cnt;
+}
