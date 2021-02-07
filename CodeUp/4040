@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int n, m, s, t, Ans = 0, cnt = 0;
+char arr[101][31];
+
+int greedy(int a)
+{
+    int mx = -1 * 0x7fffffff;
+    for (int i = 0; i < m; i++)
+    {
+        int day = 0;
+        for (int j = a; j < t - 1; j++)
+        {
+            if (arr[j][i] == 'O')
+                day++;
+            else
+                break;
+        }
+        if (mx < day)
+            mx = day;
+    }
+    return mx;
+}
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    cin >> n >> m;
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cin >> arr[i][j];
+    cin >> s >> t;
+
+    // 읽기 완료
+
+    for (int i = s - 1; i < t - 1; cnt++)
+    {
+        if (greedy(i) == 0)
+        {
+            cout << -1;
+            return 0;
+        }
+        i += greedy(i);
+    }
+    cout << cnt - 1;
+}
