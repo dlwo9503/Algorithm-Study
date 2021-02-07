@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int a, b, cnt = 0, ab;
+    cin >> a >> b;
+    ab = abs(a - b);
+    while (ab >= 10)
+    {
+        ab -= 10;
+        cnt++;
+    }
+    if (ab)
+    {
+        if (ab == 1 || ab == 5)
+            cnt++;
+        else if (ab == 2 || ab == 4 || ab == 6 || ab == 9)
+            cnt += 2;
+        else
+            cnt += 3;
+    }
+    cout << cnt;
+}
