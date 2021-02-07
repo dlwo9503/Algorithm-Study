@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int pasta[3], juice[2];
+    double price, mn = 0x7fffffff;
+    for (int i = 0; i < 3; i++)
+        cin >> pasta[i];
+    for (int i = 0; i < 2; i++)
+        cin >> juice[i];
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 2; j++)
+        {
+            price = (pasta[i] + juice[j]) * 1.1;
+            if (price < mn) mn = price;
+        }
+    }
+    cout << fixed;
+    cout.precision(1);
+    cout << mn;
+}
