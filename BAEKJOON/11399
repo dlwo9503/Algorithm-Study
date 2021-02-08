@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, a, sum = 0, Ans = 0;
+    vector<int> v, v2;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a;
+        v.push_back(a);
+    }
+    sort(v.begin(), v.end());
+    for (int i = 0; i < n; i++)
+    {
+        sum += v[i];
+        v2.push_back(sum);
+    }
+    for (int i = 0; i < n; i++)
+        Ans += v2[i];
+    cout << Ans;
+}
