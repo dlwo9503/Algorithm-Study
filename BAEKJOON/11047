@@ -1,0 +1,28 @@
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+
+    int n, k, a, cnt = 0;
+    stack<int> v;
+    cin >> n >> k;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> a;
+        v.push(a);
+    }
+    while (k)
+    {
+        if(k >= v.top())
+        {
+            cnt += k / v.top();
+            k -= v.top() * (k / v.top());
+        }
+        v.pop();
+    }
+    cout << cnt;
+}
