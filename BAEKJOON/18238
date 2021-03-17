@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int r = 0;
+    string s;
+    cin >> s;
+    s = 'A' + s;
+    for (int i = 0; i < s.size() - 1; i++)
+        r += min(abs((s[i + 1] - 'A') - (s[i] - 'A')), 26 - abs((s[i + 1] - 'A') - (s[i] - 'A')));
+    cout << r << '\n';
+}
