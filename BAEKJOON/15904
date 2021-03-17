@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(void)
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+
+	bool aa[91];
+	string s, save;
+	getline(cin, s);
+	for (int i = 0; i < s.size(); i++) {
+		if (s[i] >= 'A' && s[i] <= 'Z')
+			save += s[i];
+	}
+	for (int i = 0; i < save.size(); i++)
+	{
+		if (save[i] == 'U')
+		{
+			for (int j = i; j < save.size(); j++)
+			{
+				if (save[j] == 'C')
+				{
+					for (int a = j; a < save.size(); a++)
+					{
+						if (save[a] == 'P')
+						{
+							for (int b = a; b < save.size(); b++)
+							{
+								if (save[b] == 'C')
+								{
+									cout << "I love UCPC";
+									return 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	cout << "I hate UCPC";
+}
