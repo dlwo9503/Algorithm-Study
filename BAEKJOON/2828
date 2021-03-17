@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int M, N, J, a, r = 0;
+    int left, right, temp;
+    cin >> N >> M >> J;
+    left = 0;
+    right = M;
+    while (J--)
+    {
+        cin >> a;
+        if (a > right)
+        {
+            temp = a - right;
+            r += temp;
+            right += temp;
+            left += temp;
+        }
+        else if (a <= left)
+        {
+            temp = left - a + 1;
+            r += temp;
+            left -= temp;
+            right -= temp;
+        }
+    }
+    cout << r;
+}
