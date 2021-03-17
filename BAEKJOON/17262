@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int n, s, e, r;
+    int max = -1000000, min = 1000000;
+
+    cin >> n;
+    while (n--)
+    {
+        cin >> s >> e;
+        if (s > max) max = s;
+        if (e < min)  min = e;
+    }
+    r = max - min;
+    if (r < 0) r = 0;
+    cout << r;
+}
