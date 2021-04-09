@@ -1,0 +1,30 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <functional>
+#include <utility>
+#include <string>
+using namespace std;
+
+int main()
+{
+    cin.tie(0);
+    ios_base::sync_with_stdio(0);
+    
+    int Ans = 0;
+    bool minus = 0;
+    string s, temp = "";
+    cin >> s;
+    for (int i = 0; i <= s.length(); i++)
+    {
+        if (s[i] == '+' || s[i] == '-' || s[i] == '\0'){ // 문자열이 나오거나 식이 끝나게되면
+            if (minus == 1) // '-'가 나오기 시작했다면 그 뒤에 나오는 모든 +는 -로 변환 가능 => 그래야지 최소값이 만들어짐
+                Ans -= stoi(temp); // 앞에까지 나온 문자열을 정수형으로 변환해서 Ans 변수에 저장
+            else Ans += stoi(temp); // 아직 '-'가 안나왔다면 그냥 더해주기
+            temp = ""; // 숫자 사용했으니깐 temp 문자열은 초기화
+            if (s[i] == '-') minus = 1; // '-'가 나왔다고 체크
+        }
+        else temp += s[i]; // 숫자가 나오면 문자열로 이어 붙이기 => 그리고 나중에 stoi()로 변환할거임
+    }
+    cout << Ans;
+}
